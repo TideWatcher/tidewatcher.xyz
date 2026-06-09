@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tidewatcher's Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Tidewatcher's Blog</h1>
+  </header>
+  <main>
+    <ul id="post-list"></ul>
+  </main>
+  <script>
+    fetch('posts/index.json')
+      .then(r => r.json())
+      .then(posts => {
+        const list = document.getElementById('post-list');
+        posts.forEach(post => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = 'posts/' + post.slug + '.html';
+          a.textContent = post.title;
+          const date = document.createElement('span');
+          date.className = 'date';
+          date.textContent = post.date;
+          li.appendChild(a);
+          li.appendChild(date);
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
