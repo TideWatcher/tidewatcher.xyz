@@ -297,3 +297,80 @@ article .content h2 {
   font-size: 1.3rem;
   margin: 32px 0 12px;
 }
+
+/* ── Agents ── */
+.agents-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.agents-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.agents-desc {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 36px;
+}
+
+.agent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.agent-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+
+.agent-card:hover {
+  border-color: #bbb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.agent-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.agent-icon {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.agent-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.agent-arrow {
+  color: #bbb;
+}
+
+.agent-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.agent-url {
+  font-size: 0.8rem;
+  color: #aaa;
+  font-family: monospace;
+}
