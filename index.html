@@ -3,34 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tidewatcher's Blog</title>
+  <title>Tidewatcher</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Tidewatcher's Blog</h1>
+    <div class="header-inner">
+      <a href="index.html" class="site-title">Tidewatcher</a>
+      <nav>
+        <a href="blog.html" class="nav-link" data-zh="博客" data-en="Blog">博客</a>
+        <button class="lang-toggle" id="langToggle">EN</button>
+      </nav>
+    </div>
   </header>
-  <main>
-    <ul id="post-list"></ul>
+
+  <main class="home-main">
+    <div class="profile">
+      <div class="avatar">TW</div>
+      <h1 class="profile-name">Tidewatcher</h1>
+      <p class="profile-bio" data-zh="观潮者 · 记录时代的浪" data-en="Watching the tides · Chronicling the waves of our times">观潮者 · 记录时代的浪</p>
+    </div>
+
+    <div class="links">
+      <a href="https://t.me/TideWatcher_cao" class="link-card" target="_blank" rel="noopener">
+        <span class="link-icon">✈</span>
+        <span class="link-label">Telegram</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://x.com/TideWatcherHQ" class="link-card" target="_blank" rel="noopener">
+        <span class="link-icon">𝕏</span>
+        <span class="link-label">X (Twitter)</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@TidewatcherHQ" class="link-card" target="_blank" rel="noopener">
+        <span class="link-icon">▶</span>
+        <span class="link-label">YouTube</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://github.com/TideWatcher" class="link-card" target="_blank" rel="noopener">
+        <span class="link-icon">⌥</span>
+        <span class="link-label">GitHub</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/cousin-cao-590135120/" class="link-card" target="_blank" rel="noopener">
+        <span class="link-icon">in</span>
+        <span class="link-label">LinkedIn</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://www.zhihu.com/people/dongfangjiaozhu" class="link-card" target="_blank" rel="noopener">
+        <span class="link-icon">知</span>
+        <span class="link-label" data-zh="知乎" data-en="Zhihu">知乎</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="blog.html" class="link-card link-card--blog">
+        <span class="link-icon">✍</span>
+        <span class="link-label" data-zh="博客 · 观潮局长" data-en="Blog · Tidewatcher">博客 · 观潮局长</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+    <p class="wechat-note" data-zh="微信公众号：观潮局长" data-en="WeChat Official Account: 观潮局长">微信公众号：观潮局长</p>
   </main>
-  <script>
-    fetch('posts/index.json')
-      .then(r => r.json())
-      .then(posts => {
-        const list = document.getElementById('post-list');
-        posts.forEach(post => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = 'posts/' + post.slug + '.html';
-          a.textContent = post.title;
-          const date = document.createElement('span');
-          date.className = 'date';
-          date.textContent = post.date;
-          li.appendChild(a);
-          li.appendChild(date);
-          list.appendChild(li);
-        });
-      });
-  </script>
+
+  <script src="lang.js"></script>
 </body>
 </html>

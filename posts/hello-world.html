@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第一篇文章：你好，世界 — Tidewatcher's Blog</title>
+  <title>第一篇文章 — Tidewatcher</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <header>
-    <h1>Tidewatcher's Blog</h1>
+    <div class="header-inner">
+      <a href="../index.html" class="site-title">Tidewatcher</a>
+      <nav>
+        <a href="../blog.html" class="nav-link nav-link--active" data-zh="博客" data-en="Blog">博客</a>
+        <button class="lang-toggle" id="langToggle">EN</button>
+      </nav>
+    </div>
   </header>
   <article>
-    <a href="../index.html" class="back">← 返回首页</a>
-    <h1>第一篇文章：你好，世界</h1>
-    <div class="meta">2026-06-09</div>
+    <a href="../blog.html" class="back" data-zh="← 返回博客" data-en="← Back to Blog">← 返回博客</a>
+    <h1 data-zh="第一篇文章：你好，世界" data-en="First Post: Hello World">第一篇文章：你好，世界</h1>
+    <div class="meta">2026-06-09 · <span data-zh="朝花夕拾" data-en="Recollections">朝花夕拾</span></div>
     <div class="content">
-      <p>这是博客的第一篇文章。</p>
-      <p>这个博客叫 Tidewatcher，意思是观潮者。记录一些想法、观察和思考。</p>
+      <p data-zh="这是博客的第一篇文章。" data-en="This is the first post on this blog.">这是博客的第一篇文章。</p>
+      <p data-zh="这个博客叫观潮局长，意思是观潮者。记录一些想法、观察和思考。" data-en="This blog is called Tidewatcher — recording observations, thoughts, and reflections on the world.">这个博客叫观潮局长，意思是观潮者。记录一些想法、观察和思考。</p>
     </div>
   </article>
+  <script src="../lang.js"></script>
 </body>
 </html>

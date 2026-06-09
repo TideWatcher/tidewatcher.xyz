@@ -2,6 +2,9 @@
   {
     "slug": "hello-world",
     "title": "第一篇文章：你好，世界",
+    "titleEn": "First Post: Hello World",
+    "category": "朝花夕拾",
+    "categoryEn": "Recollections",
     "date": "2026-06-09"
   }
 ]

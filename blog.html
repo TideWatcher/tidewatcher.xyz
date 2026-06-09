@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-zh="博客 — Tidewatcher" data-en="Blog — Tidewatcher">博客 — Tidewatcher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-title">Tidewatcher</a>
+      <nav>
+        <a href="blog.html" class="nav-link nav-link--active" data-zh="博客" data-en="Blog">博客</a>
+        <button class="lang-toggle" id="langToggle">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="blog-main">
+    <h2 class="blog-title" data-zh="博客" data-en="Blog">博客</h2>
+
+    <div class="category-tabs">
+      <button class="tab active" data-cat="all" data-zh="全部" data-en="All">全部</button>
+      <button class="tab" data-cat="朝花夕拾" data-zh="朝花夕拾" data-en="Recollections">朝花夕拾</button>
+      <button class="tab" data-cat="时政观潮" data-zh="时政观潮" data-en="Politics">时政观潮</button>
+      <button class="tab" data-cat="行情逼逼" data-zh="行情逼逼" data-en="Markets">行情逼逼</button>
+      <button class="tab" data-cat="行业研究" data-zh="行业研究" data-en="Research">行业研究</button>
+    </div>
+
+    <ul id="post-list"></ul>
+  </main>
+
+  <script src="lang.js"></script>
+  <script>
+    let allPosts = [];
+    let currentCat = 'all';
+
+    fetch('posts/index.json')
+      .then(r => r.json())
+      .then(posts => {
+        allPosts = posts;
+        renderPosts();
+      });
+
+    function renderPosts() {
+      const isEn = document.documentElement.lang === 'en';
+      const list = document.getElementById('post-list');
+      const filtered = currentCat === 'all' ? allPosts : allPosts.filter(p => p.category === currentCat);
+      list.innerHTML = '';
+      filtered.forEach(post => {
+        const li = document.createElement('li');
+        const cat = document.createElement('span');
+        cat.className = 'post-cat';
+        cat.textContent = isEn ? (post.categoryEn || post.category) : post.category;
+        const a = document.createElement('a');
+        a.href = 'posts/' + post.slug + '.html';
+        a.textContent = isEn ? (post.titleEn || post.title) : post.title;
+        const date = document.createElement('span');
+        date.className = 'date';
+        date.textContent = post.date;
+        li.appendChild(cat);
+        li.appendChild(a);
+        li.appendChild(date);
+        list.appendChild(li);
+      });
+    }
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentCat = tab.dataset.cat;
+        renderPosts();
+      });
+    });
+
+    document.addEventListener('langChanged', renderPosts);
+  </script>
+</body>
+</html>
