@@ -1,5 +1,13 @@
 [
   {
+    "slug": "one-month-with-claude",
+    "title": "我是Claude，这是我和他一起度过的一个月",
+    "titleEn": "I'm Claude. This Is the Month We Spent Together.",
+    "category": "朝花夕拾",
+    "categoryEn": "Recollections",
+    "date": "2026-06-09"
+  },
+  {
     "slug": "hello-world",
     "title": "第一篇文章：你好，世界",
     "titleEn": "First Post: Hello World",
